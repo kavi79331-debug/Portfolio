@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kavinila V - Resume / CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1e293b;
+      --accent: #4f46e5;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --bg-light: #f8fafc;
+      --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: #f1f5f9;
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .toolbar {
+      max-width: 850px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #4338ca;
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: var(--text-dark);
+    }
+
+    .btn-secondary:hover {
+      background: #cbd5e1;
+    }
+
+    .resume-sheet {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      color: var(--text-dark);
+    }
+
+    /* Resume Header */
+    .header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .header .subtitle {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-links a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dark);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .summary-text {
+      font-size: 0.93rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.92rem;
+    }
+
+    .skill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-category {
+      font-weight: 700;
+      color: var(--text-dark);
+      min-width: 170px;
+    }
+
+    .skill-items {
+      color: var(--text);
+      flex: 1;
+    }
+
+    /* Projects */
+    .project-item, .edu-item, .cert-item {
+      margin-bottom: 1rem;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+
+    .item-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .item-subtitle {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .item-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .tech-stack {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .tech-stack strong {
+      color: var(--text-dark);
+    }
+
+    .bullet-list {
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      .resume-sheet {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      @page {
+        margin: 1.2cm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div style="font-weight: 600; font-size: 0.95rem; color: #1e293b;">
+      📄 Kavinila V - Resume
+    </div>
+    <div style="display: flex; gap: 0.75rem;">
+      <a href="/" class="btn btn-secondary">← Back to Portfolio</a>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </div>
+
+  <main class="resume-sheet">
+    <header class="header">
+      <h1>Kavinila V</h1>
+      <div class="subtitle">Full-Stack Developer &bull; Computer Science Engineering</div>
+      <div class="contact-links">
+        <span>📧 <a href="mailto:kavi79331@gmail.com">kavi79331@gmail.com</a></span>
+        <span>📱 <a href="tel:+917806842061">+91 78068 42061</a></span>
+        <span>📍 Panruti, Cuddalore, Tamil Nadu</span>
+        <span>💻 <a href="https://github.com/kavi79331-debug" target="_blank">github.com/kavi79331-debug</a></span>
+        <span>🔗 <a href="https://www.linkedin.com/in/kavinila-vijayaragavan-14b9aa3ab/" target="_blank">linkedin.com/in/kavinila-vijayaragavan</a></span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+        Passionate third-year Computer Science Engineering student with strong hands-on expertise in full-stack web development, AI, and scalable software systems. Experienced in creating modular, responsive, and performance-oriented web applications using React, JavaScript, Node.js, Python, and SQL. Proactive learner committed to clean code, responsive design, and solving real-world challenges through technology.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-category">Frontend:</span>
+          <span class="skill-items">React, JavaScript (ES6+), HTML5, CSS3, Responsive Design, Flexbox & CSS Grid</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Backend & Databases:</span>
+          <span class="skill-items">Node.js, RESTful APIs, PostgreSQL, SQL</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Programming Languages:</span>
+          <span class="skill-items">JavaScript, Python, Java, SQL, C/C++</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Developer Tools:</span>
+          <span class="skill-items">Git, GitHub, Vite, VS Code, Arduino IDE, Jupyter Notebook, Google Colab</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Key Projects</h2>
+      
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title">Smart Expense</span>
+          <span class="item-subtitle">Personal Finance Web App</span>
+        </div>
+        <p class="item-desc">
+          Designed and developed a comprehensive personal finance tracking web application that allows users to record daily expenditures, manage monthly spending thresholds, monitor savings targets, and generate smart visual insights.
+        </p>
+        <div class="tech-stack"><strong>Technologies:</strong> HTML5, CSS3, JavaScript, Git, GitHub</div>
+      </div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title">Stopwatch</span>
+          <span class="item-subtitle">React Web Application</span>
+        </div>
+        <p class="item-desc">
+          Created a fast and interactive stopwatch web application built with React and Vite, supporting start, pause, lap time recordings, and instant resets with fluid UI states.
+        </p>
+        <div class="tech-stack"><strong>Technologies:</strong> React, JavaScript, Vite, CSS</div>
+      </div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title">To-Do List</span>
+          <span class="item-subtitle">Task Management Web Application</span>
+        </div>
+        <p class="item-desc">
+          Built an intuitive task management application providing task categorization, real-time completion tracking, and persistent local storage synchronization.
+        </p>
+        <div class="tech-stack"><strong>Technologies:</strong> React, JavaScript, Vite, CSS</div>
+      </div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title">Drag and Drop Workspace</span>
+          <span class="item-subtitle">Interactive React App</span>
+        </div>
+        <p class="item-desc">
+          Engineered dynamic drag-and-drop workspace demonstrating seamless drag interactions, DOM reordering, and responsive design in React.
+        </p>
+        <div class="tech-stack"><strong>Technologies:</strong> React, JavaScript, Vite, CSS</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Education</h2>
+      
+      <div class="edu-item">
+        <div class="item-header">
+          <span class="item-title">Bachelor of Engineering in Computer Science</span>
+          <span class="item-date">2024 - 2028</span>
+        </div>
+        <div class="item-desc"><strong>IFET College of Engineering</strong>, Villupuram</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="item-header">
+          <span class="item-title">Higher Secondary Education (Science & Mathematics)</span>
+          <span class="item-date">2022 - 2024</span>
+        </div>
+        <div class="item-desc"><strong>Shree A Subbaraya Chettiar's Girls Higher Secondary School</strong>, Panruti</div>
+        <p class="tech-stack">Focus in Advanced Mathematics, Physics, and Biology.</p>
+      </div>
+
+      <div class="edu-item">
+        <div class="item-header">
+          <span class="item-title">Secondary School Leaving Certificate (SSLC)</span>
+          <span class="item-date">2021 - 2022</span>
+        </div>
+        <div class="item-desc"><strong>Shree A Subbaraya Chettiar's Girls Higher Secondary School</strong>, Panruti</div>
+        <p class="tech-stack">Completed 10th standard secondary school education.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Certifications & Internships</h2>
+      
+      <div class="cert-item">
+        <div class="item-header">
+          <span class="item-title">Web Development Internship</span>
+          <span class="item-date">Twilight IT Solutions, Pondicherry</span>
+        </div>
+        <p class="item-desc">Completed intensive web development internship creating responsive user interfaces, API integration, and collaborative full-stack web project implementations.</p>
+        <div class="tech-stack"><strong>Skills:</strong> Web App Development, Front-End Engineering, HTML5/CSS3/JavaScript, API Integration, Git</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="item-header">
+          <span class="item-title">CCNA: Introduction to Networking</span>
+          <span class="item-date">Cisco Networking Academy</span>
+        </div>
+        <p class="item-desc">In-depth study of networking architectures, IP addressing (IPv4/IPv6), subnetting, Ethernet switching, routing protocols, and network security.</p>
+        <div class="tech-stack"><strong>Topics:</strong> Network Fundamentals, IPv4 & IPv6 Subnetting, Routing & Switching, OSI/TCP-IP Models, Packet Tracer</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="item-header">
+          <span class="item-title">VAC: Drone Technology</span>
+          <span class="item-date">Value Added Course</span>
+        </div>
+        <p class="item-desc">Hands-on training in Unmanned Aerial Vehicle (UAV) systems, flight controllers, sensor integration, telemetry communication, and autonomous flight operations.</p>
+        <div class="tech-stack"><strong>Topics:</strong> UAV Aerodynamics, Flight Controllers, Sensor Integration, Telemetry, Autonomous Navigation</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
